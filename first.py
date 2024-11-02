@@ -776,8 +776,113 @@
 # check(6)
 #? Recursion Factorial
 # def check(n):
-#     if(n == 1 or n ==0):
+#     if(n == 0):
 #         return 1;
 #     else:
 #         return n * check(n-1)
 # print(check(6))
+#!=====================================================================
+#! Practice Question
+#? Recusrsive Function to calculate the sum of first to n numbers
+# def cal(a):
+#     if(a == 1):
+#         return 1;
+#     else:
+#         return a + cal(a-1)
+
+# output = cal(int(input("Enter a Value: ")));
+# print(output)
+
+#? Recusrsive Function to Print all the elements in a list
+# def check(n):
+#     if(len(n) == 0):
+#         return;
+#     else:
+#         print(n.pop())
+#         check(n)
+# heroes = ["ironman","thor","captain america","hulk","black widow","hawkeye"];
+# output = check(heroes);
+# print(output)
+#!=====================================================================
+#! File I/O input output
+#todo if there no file found , it'll create that
+#todo read(5) <== this will return the first 5 char of file
+#? Open
+# file = open('demo.txt','r'); #? open funtion takes 2 parameters. First is compulsory which is the path of file | but second is optional as it's the mode , default set to r : read
+#? Read
+# data = file.read(); #? .read() function converts that into stream (readable format)
+# print(data) #? Printing the output from sibling file
+#? Close
+# file.close() #? Always remember to close the file after completing all the operations
+#!=====================================================================
+#? Write
+# file = open("demo.txt","w");
+# data = file.write("Hey, I'm learning Python")
+# file.close()
+#!=====================================================================
+#? Append
+# file = open("demo.txt","a");
+# data = file.write("\nHello , I'm here after append");
+# file.close()
+#!=====================================================================
+#! WITH syntax
+# #todo READ
+# with open("demo.txt","r") as f:
+#     print(f.read());
+# #todo WRITE
+# with open("demo.txt","w") as f:
+#     print(f.write("HELLO WORLD"));
+# #todo APPEND
+# with open("demo.txt","a") as f:
+#     print(f.write("\nI'm appended from Python Code"));
+#!=====================================================================
+#! Remove , OS , remove
+# import os;
+# os.remove('demo.txt')
+#!=====================================================================
+#! Practice Question
+#? Creating and Adding text to a file using Python
+# with open("practice.txt","w") as f:
+#     f.write("Hi Everyone\nwe are learning File I/O\nusing Java.\nI like programming in Java.")
+#? Changing file's specific content
+# with open("practice.txt",'r') as f: #* opening the file in read mode
+#     data = f.read() #* storing whole content in DATA variable
+# with open("practice.txt",'w') as f: #* opening same file again in write mode
+#     f.write(data.replace("Java","Python")) #*writing content again but with replace function
+#? Search if the word LEANING exist in file
+# with open("practice.txt",'r') as f:
+#     data = f.read();
+#     print(("No","Yes") [data.count('learning') > 0])
+#? Print the line where the word LEARNING occured first, -1 if not
+# def checkLine(): #* Function
+#     data = True; #* Initial value set to TRUE to start the loop
+#     line = 1; #* Intitial value set to 1 for the line 1
+#     with open("practice.txt","r") as f: #* opening the file in read mode
+#         while data: #* Running loop till the data become invalid (usually when it return empty value)
+#             data = f.readline(); #* storing single line in data
+#             if("learning" in data): #* Base case
+#                 return line; #* if found then return the line number
+#             line+=1; #* Updating line number on each loop
+#     return -1; #* When the loop will end without finding anything , return -1
+# print(checkLine()) #* Running the function and printing the returning values
+#? Print even numbers in another file sperated by commas
+# def sumNum():
+#     with open("numbers.txt","r") as f:
+#         data = f.read();
+#         num = "";
+#         for i in range(len(data)):
+#             if(data[i] == ','):
+#                 print(int(num)) if int(num)%2==0 else ""
+#                 num = "";
+#             else:
+#                 num+= data[i];
+# sumNum()
+#*===========================OR=================================
+# def sumNum():
+#     with open("numbers.txt","r") as f:
+#         data = f.read();
+#         num = data.split(',');
+#         for i in num:
+#             print(int(i)) if int(i)%2==0 else ""
+# sumNum()
+#!=====================================================================
