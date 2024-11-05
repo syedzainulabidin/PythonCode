@@ -886,3 +886,124 @@
 #             print(int(i)) if int(i)%2==0 else ""
 # sumNum()
 #!=====================================================================
+#! OPP Object Oriented Programming
+
+# class Student: #* Creating a Class
+#     name = "Syed Ali" #* Storing value in name
+# s1 = Student(); #* Creating Object
+# print(s1.name) #* Printing Object
+#? Case 02
+# class Car:
+#     color = "Black"
+#     engine = "V8"
+
+# Mercedes = Car();
+# Civic = Car();
+# print(Mercedes.color, Mercedes.engine)
+# print(Civic.color , Civic.engine)
+#! Constructor (init function) __init__
+# class Student: #* creating class
+#     def __init__(self): #* constructor (always invoke by default), takes self parameter which is the object itself
+#         print("Adding a new Student to Database...")
+#     name = "Syed Ali" #* Storing value in name
+
+# s1 = Student(); #* Creating Object
+# print(s1.name) #* Printing Object
+#! Self
+# class Student:
+#     def __init__(self, name, roll):
+#         self.name = name;
+#         self.roll = roll;
+#         print("New Student Added !",name,"Roll:", roll)
+
+# Student("Syed ali", 1);
+# Student("Hamza", 2);
+#! Class & Instance Attribute
+# class Data:
+#     college = "Aptech"; #? Class attribute | attached with everyone in data
+#     def __init__(self,name,marks):
+#         self.name = name; #? Obj / Instance attribute | changes by time 
+#         self.marks = marks;
+
+# s1 = Data("Ali", 90);
+# print(s1.name)
+# print(s1.marks)
+# print(Data.college)
+# s2 = Data("Hamza", 85);
+# print(s2.name)
+# print(s2.marks)
+# print(Data.college)
+#!=====================================================================
+#! Practice Question
+#? Make Student Class takes name & 3 subjects then prints average
+# class Student: #* Class
+#     college = "Aptech"; #* class attribute
+#     branch = "Metro Star Gate"; #* class attribute
+#     def __init__(self, name): #* contructor
+#         self.name = name; #* adding name
+#         print("Welcome", self.name, "Thank you for taking admission in", self.college); #* Welcome MSG
+#     def average(self): #* function / method 
+#         val1 = int(input("English: ")); #* 1st value
+#         val2 = int(input("Phsyics: ")); #* 2nd value
+#         val3 = int(input("Computer: ")); #* 3rd value
+#         self.average = (val1+val2+val3)/3; #* adding the avg marks in average
+#         return self.average; #* returning the output
+        
+
+# print("APTECH METRO START GATE BRANCH") #* Printing 1st heading
+# s1 = Student(input("Enter your Name: ")); #* obj and passing user name
+# print("Average Marks:",s1.average(),"per Subject") #* prinitng the output of average function
+#? Make Student Class takes name & 3 subjects then prints average
+# class Student: #? class
+#     def __init__(self, name, marks): #? constructor
+#         self.name = name; #? adding name
+#         self.average = marks; #? adding marks
+#     result = 0; #? initial result value to 0
+#     def average(self): #? average cal function
+#         for i in self.average: #? loop for list
+#             result += i #? adding values in result
+#         print('Average =',result/3); #? printing the output
+# s1 = Student("Ali",[90, 19, 48]); #? object(name,list of marks)
+# s1.average() #? Function calling
+
+#? Make a Banking Functionality with Debit , Creait , Printing
+# class Account:
+#     def __init__(self, balance , account):
+#         self.balance = balance;
+#         self.account = account;
+#         print('Welcome Account No.',self.account)
+#         Account.options(self);       
+#     def options(self):
+#         print("Select any of these\n1.Debit\n2.Credit\n3.Print Balance")
+#         operation = int(input("> "));
+#         {1: Account.debt, 2: Account.credit, 3:Account.printing}.get(operation, Account.error)(self)    
+#     def debt(self):
+#         print("************************************ ACCOUNT DEBIT **************************************")
+#         self.balance -= int(input("How much you want to withdraw ?: "))
+#         print("Payment Deducted from Account ",self.account,"\n**************************************************************************");
+#         Account.options(self);
+#     def credit(self):
+#         print("************************************ ACCOUNT CREDIT **************************************")
+#         self.balance += int(input("How much you want to add ?: "))
+#         print("Payment Added on Account",self.account,"\n**************************************************************************");
+#         Account.options(self);
+#     def printing(self):
+#         print("\tAccount Balance",self.balance,"\n**************************************************************************");
+#         Account.options(self);  
+#     def error(self):
+#         print("AN ERROR OCCURED")
+# s1 = Account(100000, 12345);
+#!=====================================================================
+#! StaticMethod
+# class Data:
+#     @staticmethod #? This keyword allows to make functions / methods without self parameter
+#     def a():
+#         print("Check A");
+    
+#     def b(self):
+#         print("Check B")
+        
+# s1 = Data();
+# print(s1.b())
+# print(s1.a()) #? This doesn't require any self
+#!=====================================================================
