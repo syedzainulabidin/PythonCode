@@ -1007,3 +1007,98 @@
 # print(s1.b())
 # print(s1.a()) #? This doesn't require any self
 #!=====================================================================
+#! DEL
+# class Student:
+#     def __init__(self, a):
+#         self.name = a;
+# s1 = Student('Xhen');
+# print(s1.name);
+# del s1.name; #? del s1.name DELETES THE name attribute/data & del s1 will delete entire obj
+# print(s1.name);
+#!=====================================================================
+#! Public / private
+# class Data:
+#     def __init__(self):
+#         self.__email = 'admin';
+#         self.__password = 'admin123';
+#     def mark1(self):
+#         print(self.__email, self.__password);
+
+
+# s1 = Data();
+# s1.mark1()
+#!=====================================================================
+#! Single Inheritance
+# class Car:
+#     def start(self, name=''):
+#         print(self.name,"Car is Started...")
+        
+#     def stop(self,  name=''):
+#         print(self.name,"Car is Stopped...")
+
+# class Toyota(Car):
+#     def __init__(self, name):
+#         self.name = name;
+        
+# s1 = Toyota('primus');
+# s1.start()
+# s1.stop()
+#!=====================================================================
+#! Multi level Inheritance
+# class Car:
+#     def start(self, name=''):
+#         print(self.name, "car Started...")
+#     def stop(self, name=''):
+#         print(self.name, "car Stopped...")
+# class Toyota(Car):
+#     def __init__(self):
+#         pass;
+# class Civic(Toyota):
+#     def __init__(self, name):
+#         self.name = name;
+
+# car = Civic('yesh');
+# car.start()
+# car.stop()
+#!=====================================================================
+#! Multiple Inheritance
+# class electric_car:
+#     def start(self, name=''):
+#         print(self.name, "car Started...")
+
+# class petrol_car:
+#     def stop(self, name=''):
+#         print(self.name, "car Stopped...")
+        
+# class hybrid_car(electric_car, petrol_car):
+#     def __init__(self, name):
+#         self.name = name;
+
+# car = hybrid_car('tesla');
+# car.start();
+# car.stop();
+#!=====================================================================
+#! Super
+# class Parent:
+#     def __init__(self, name):
+#         self.name = name;
+#         print(self.name)
+        
+# class Child(Parent):
+#     def __init__(self, name):
+#         super().__init__(name)
+
+# s1 = Child('ali');
+#!=====================================================================
+#! Class Method
+# class Person:
+#     name = "Syed Ali";
+#     @classmethod
+#     def changeName(Person, name):
+#         Person.name = name;
+
+
+# s1 = Person();
+# s1.changeName("Zain")
+# print(s1.name)
+# print(Person.name)
