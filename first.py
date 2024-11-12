@@ -1092,13 +1092,146 @@
 #!=====================================================================
 #! Class Method
 # class Person:
-#     name = "Syed Ali";
-#     @classmethod
-#     def changeName(Person, name):
-#         Person.name = name;
-
-
+#     name = "default";
+#     #*OR
+#     def withClassName(self, name):
+#         self.name = name;
+#     #*OR
+#     # def withAccessClass(self, name):
+#     #     self.__class__.name = name;
+#     #*OR
+#     # @classmethod
+#     # def withclassMethod(self, name):
+#     #     self.name = name;
 # s1 = Person();
-# s1.changeName("Zain")
-# print(s1.name)
+# s1.withClassName("zain") #*OR
+# # s1.withAccessClass("zain") #*OR
+# # s1.withclassMethod("zain") #*OR
+# print(s1.name);
 # print(Person.name)
+#!=====================================================================
+# class Parent:
+#     name = 'default';
+#     def start(self):
+#         print("Running from Parent Class");
+# class Child(Parent):
+#     def __init__(self):
+#         self.start();
+        
+# s1 = Child();
+# s1.start();
+#!=====================================================================
+#! Property
+# class Student:
+#     def __init__(self, phy, eng, math):
+#         self.phy = phy;
+#         self.eng = eng;
+#         self.math = math;
+#     @property
+#     def percantage(self):
+#         return (self.phy + self.eng + self.math) / 3
+        
+# s1 = Student(100,69,98);
+# print(s1.percantage)
+# s1.phy = 50;
+# print(s1.percantage)
+#!=====================================================================
+#! Dunder Function (+) / operator overlodaing / polimorphisum
+# class Complex:
+#     def __init__(self, real, img):
+#         self.real = real;
+#         self.img = img;
+#     def show(self):
+#         print(self.real,"i+",self.img,"j")
+#     def __add__(self, obj):
+#         tempReal = self.real + obj.real;
+#         tempImg = self.img + obj.img;
+#         return Complex(tempReal, tempImg)
+#     def __sub__(self, obj):
+#         tempReal = self.real - obj.real;
+#         tempImg = self.img - obj.img;
+#         return Complex(tempReal, tempImg)
+# n1 = Complex(4,6);
+# n1.show()
+# n2 = Complex(1,7);
+# n2.show()
+# # #? Addition OR
+# # n3 = n1 + n2;
+# # n3.show()
+# # #? Subtraction OR
+# # n3 = n1 - n2;
+# # n3.show()
+#!=====================================================================
+#!Practice Question
+#? 01 =>
+# class Circle:
+#     def __init__(self, radius):
+#         self.radius = radius
+#     def area(self):
+#         return (22/7) * (self.radius * self.radius)
+#     def perimeter(self):
+#         return 2 * (22/7) * self.radius
+# c1 = Circle(21)
+# print("Radius is", c1.radius,"\nArea is",c1.area(),"\nPerimeter is",c1.perimeter())
+#? 02 & 03=>
+# class Employee:
+#     def __init__(self, role, dept, salary):
+#         self.role = role;
+#         self.dept = dept;
+#         self.salary = salary;
+#     def showDetails(self):
+#         return {
+#             'Role' : self.role,
+#             'Department' : self.dept,
+#             'Salary' : self.salary,
+#         }
+# em1 = Employee('Web Desinger', 'IT', 900000);
+# print(em1.showDetails())
+
+# class Engineer(Employee):
+#     def __init__(self, role, dept, salary, name, age):
+#         self.name = name;
+#         self.age = age;
+#         super().__init__(role, dept, salary)
+
+# en1 = Engineer('Civil Engineer', 'Construction', 5000, 'tahir', 99)
+# print(en1.showDetails())
+#? 04=>
+# class Order:
+#      def __init__(self, item, price):
+#         self.item = item
+#         self.price = price    
+#      def __gt__(self, or2):
+#         return self.price > or2.price
+# or1 = Order('milk',100)
+# or2 = Order('Tea',20)
+# print(or1 > or2)
+#!=====================================================================
+#! Number Guessing Game
+# import random;
+# target = random.randint(0,10);
+# count = 5;
+# def guess(target, count):
+#     if(count == 0):
+#         print("Sorry 0 Guesses Left \t The Number was",target)
+#     else:
+#         val = int(input("Guess the number b/w 1 to 10 :> "));
+#         if(val == target):
+#             print("Congrats!!, the number was", val)
+#         else:
+#             if(val > target):
+#                 print(val,"is Greater than target Number |\t guesses left:",count)
+#             else:
+#                 print(val,"is Lower than target Number|\t guesses left:",count)
+#             count -=1;
+#             guess(target , count);
+# guess(target, count)
+#!=====================================================================
+#! Random Password Generator
+# import random;
+# import string;
+# data = string.ascii_letters + string.digits + string.punctuation
+# def generate(val):
+#     result = "".join([random.choice(data) for i in range(0,val)]) #? List Comprehensation
+#     print(result)
+# generate(12)
